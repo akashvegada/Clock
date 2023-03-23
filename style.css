@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100&family=Rubik+Iso&display=swap');
+
+:root{
+    --clock-size : max(60vh, 40vw);
+    /* --rotate-hour: 0deg;
+    --rotate-minute: 0deg;
+    --rotate-second: 0deg; */
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(43, 45, 61) ;
+}
+
+.container{
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    gap: 3rem;
+    z-index: 1;
+    place-content: center;
+    padding-block: 1rem;
+}
+
+.social-links a{
+    width: 30px;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    /* background-color: red; */
+    box-shadow:5px 5px 15px 5px rgba(0, 0, 0, 0.3), -5px -5px 10px 1px rgba(255, 255, 255, 0.1);    
+}
+.social-links svg{
+   fill:gainsboro;
+}
+.social-links{
+    display: grid;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.info{
+    color:gainsboro;
+    text-align: center;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.65);
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    margin-inline: 1rem;
+    box-shadow:5px 5px 15px 5px rgba(0, 0, 0, 0.3), -5px -5px 10px 1px rgba(255, 255, 255, 0.1);    
+}
+.info span{
+    /* background-color: red; */
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-style: italic;
+}
+.info h1{
+    font-family: 'Rubik Iso', cursive;
+}
+
+.clock-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellowgreen; */
+}
+
+.clock{
+    /* background-color: skyblue; */
+    /* background-color: #d0e1f9 ; */
+    /* flex: 1; */
+    width: min(85vw,var(--clock-size));
+    /* position: absolute; */
+    position: relative;
+    aspect-ratio: 1;
+    /* left: 50%;
+    top: 50%; */
+    /* transform: translate(-50%, -50%); */
+    border-radius: 100%;
+    /* border: skyblue 0.5rem solid; */
+    box-shadow:5px 5px 15px 5px rgba(0, 0, 0, 0.3), -5px -5px 10px 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock::before{
+    content: '';
+    width: 1.2rem;
+    z-index: 1;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background-color: rgb(60, 0, 255);
+    box-shadow: 5px 5px 15px  rgba(0, 0, 0, 0.5);
+}
+
+.clock::after{
+    content: '';
+    position: absolute;
+    width : min(calc(85vw - 1px) ,calc(var(--clock-size) - 10px));
+    aspect-ratio: 1;
+    border-radius: 100%;
+    box-shadow: inset -5px -5px 10px 1px rgba(255, 255, 255, 0.1), inset 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tabs{
+    width: 15px;
+    height: 2.5rem;
+    background-color: rgb(255, 208, 0);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.twelve{
+    position: absolute;
+    left: 50%;
+    transform: translate(50%, -5px);
+    top: 0;
+    rotate: 180deg;
+}
+.three{
+    rotate: -90deg;
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%);
+}
+.six{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -5px);
+    bottom: 0;
+}
+.nine{
+    rotate: 90deg;
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);  
+}
+
+
+
+
+.hourHand{
+    height: calc(var(--clock-size)/2 - 7rem);
+    width: 10px;
+    border-radius: 0.1rem;
+    transform: translateY(-50%);
+    /* visibility: hidden; */
+    background-color: gainsboro;
+    rotate: var(--rotate-hour);
+    position: absolute;
+    box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.7);
+}
+.minuteHand{
+    height: calc(var(--clock-size)/2 - 4rem);
+    width: 10px;
+    border-radius: 0.1rem;
+    transform: translateY(-50%);
+    /* visibility: hidden; */
+    background-color: gainsboro;
+    rotate: var(--rotate-minute);
+    position: absolute;
+    box-shadow: 5px 5px 12px  rgba(0, 0, 0, 0.6);
+}
+.secondHand{
+    height: calc(var(--clock-size)/2);
+    width: 3px;
+    border-radius: 0.1rem;
+    transform: translateY(-35%);
+    /* visibility: hidden; */
+    background-color: gainsboro;
+    rotate: var(--rotate-second);
+    position: absolute;
+    background-color: rgb(60, 0, 255);
+    box-shadow: 5px 5px 15px  rgba(0, 0, 0, 0.5);
+}
